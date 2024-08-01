@@ -82,7 +82,7 @@ const house3y = {
 
 const InvestAnimation = () => {
   return (
-    <motion.div className="w-[100%] h-[50vh] bg-[#F7F7F7] relative flex">
+    <motion.div className="w-[100%] h-[50vh] bg-[#F7F7F7] relative flex mt-[5rem]">
       {/* Left */}
       <motion.div className="w-1/2 h-[50vh] overflow-hidden">
         <motion.div className="w-full h-full">
