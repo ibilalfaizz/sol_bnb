@@ -6,15 +6,15 @@ import image3 from "../../assets/images/image3.svg";
 import logo1 from "../../assets/images/logo1.svg";
 import eth from "../../assets/images/eth.svg";
 import bsc from "../../assets/images/bsc.svg";
-import sol from "../../assets/images/sql.svg";
+import sql from "../../assets/images/sql.svg";
 import Timer from "./Timer";
 import Slider from "./Slider";
 import { BsExclamation } from "react-icons/bs";
 import { motion } from "framer-motion";
 
 const solbnb = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -300 },
+  visible: { opacity: 1, x: 0, z: 0 },
+  hidden: { opacity: 0, x: -300, z: -20 },
 };
 
 const rightBox = {
@@ -23,8 +23,8 @@ const rightBox = {
 };
 
 const button = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -300 },
+  visible: { opacity: 1, x: 0, z: 0 },
+  hidden: { opacity: 0, x: -300, z: -20 },
 };
 
 const img1x = {
@@ -58,26 +58,6 @@ const img3y = {
 };
 
 const Hero = () => {
-  const [pay, setPay] = useState("");
-  const [recieve, setRecieve] = useState("");
-  const [payIcon, setPayIcon] = useState(eth);
-  const [recieveIcon, setRecieveIcon] = useState(eth);
-  const [value, setValue] = useState(0);
-  const [alert, setAlert] = useState(false);
-
-  function payHandler(event) {
-    const payment = event.target.value;
-    setValue(payment);
-  }
-
-  function submitHandler() {
-    setAlert(true);
-  }
-
-  function closeAlertHandler() {
-    setAlert(false);
-  }
-
   return (
     <motion.div className="w-[90%] h-[65%] flex items-center mx-auto rounded-2xl px-10 py-4 bg-gradient-to-r from-[#F9F9F9] to-white border-[4px] border-[#F9F9F9] relative">
       {/* Left Section */}
@@ -192,7 +172,7 @@ const Hero = () => {
       {/* Right Section */}
       <div className="w-1/3 h-full overflow-hidden">
         <motion.div
-          className="w-full h-full ml-6 px-10 flex flex-col items-center gap-2"
+          className="w-full h-full ml-6 px-10 flex flex-col items-center gap-3"
           initial="hidden"
           animate="visible"
           variants={rightBox}
@@ -230,93 +210,36 @@ const Hero = () => {
           <div className="font-bold text-sm">1 $SOLBNB = $0.000722</div>
 
           <div className="w-full flex justify-between px-4">
-            <div
-              className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
-              onClick={() => {
-                setPay("ETH");
-                setPayIcon(eth);
-              }}
-              style={{
-                backgroundColor: `${pay}` === "ETH" ? "#000000" : "",
-                color: `${pay}` === "ETH" ? "#ffffff" : "",
-              }}
-            >
+            <div className="flex gap-2 items-center">
               <img src={eth} width={25} />
               <span>ETH</span>
             </div>
 
-            <div
-              className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
-              onClick={() => {
-                setPay("BSC");
-                setPayIcon(bsc);
-              }}
-              style={{
-                backgroundColor: `${pay}` === "BSC" ? "#000000" : "",
-                color: `${pay}` === "BSC" ? "#ffffff" : "",
-              }}
-            >
+            <div className="flex gap-2 items-center">
               <img src={bsc} width={25} />
               <span>BSC</span>
             </div>
 
-            <div
-              className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
-              onClick={() => {
-                setPay("SOL");
-                setPayIcon(sol);
-              }}
-              style={{
-                backgroundColor: `${pay}` === "SOL" ? "#000000" : "",
-                color: `${pay}` === "SOL" ? "#ffffff" : "",
-              }}
-            >
-              <img src={sol} width={25} />
+            <div className="flex gap-2 items-center">
+              <img src={sql} width={25} />
               <span>SOL</span>
             </div>
           </div>
 
           <div className="w-full flex justify-between border-[1.5px] border-black py-2 px-4 rounded-full">
-            <div
-              className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
-              onClick={() => {
-                setRecieve("ETH");
-                setRecieveIcon(eth);
-              }}
-              style={{
-                backgroundColor: `${recieve}` === "ETH" ? "#FD395C" : "",
-              }}
-            >
+            <div className="flex gap-2 items-center">
               <img src={eth} width={25} />
               <span>ETH</span>
             </div>
 
-            <div
-              className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
-              onClick={() => {
-                setRecieve("BSC");
-                setRecieveIcon(bsc);
-              }}
-              style={{
-                backgroundColor: `${recieve}` === "BSC" ? "#FD395C" : "",
-              }}
-            >
+            <div className="flex gap-2 items-center">
               <img src={bsc} width={25} />
               <span>BSC</span>
             </div>
 
-            <div
-              className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
-              onClick={() => {
-                setRecieve("SOL");
-                setRecieveIcon(sol);
-              }}
-              style={{
-                backgroundColor: `${recieve}` === "SOL" ? "#FD395C" : "",
-              }}
-            >
-              <img src={sol} width={25} />
-              <span>SOL</span>
+            <div className="flex gap-2 items-center">
+              <img src={sql} width={25} />
+              <span>SQL</span>
             </div>
           </div>
 
@@ -330,12 +253,11 @@ const Hero = () => {
               </div>
               <div className="flex border-[1.5px] border-black rounded-full">
                 <input
-                  type="number"
+                  type="numbers"
                   placeholder="0"
-                  className="w-[80%] bg-transparent pl-3 text-[#6A6A6A] outline-none"
-                  onChange={payHandler}
+                  className="w-[80%] bg-transparent pl-3 text-[#6A6A6A]"
                 />
-                <img src={payIcon} width={25} />
+                <img src={eth} width={25} />
               </div>
             </div>
 
@@ -345,14 +267,12 @@ const Hero = () => {
                 <span className="text-xs font-bold">Receive $SOLBNB</span>
               </div>
               <div className="flex border-[1.5px] border-black rounded-full">
-                <div
+                <input
                   type="numbers"
                   placeholder="0"
-                  className="w-[80%] bg-transparent pl-3 text-[#6A6A6A] outline-none"
-                >
-                  {value}
-                </div>
-                <img src={recieveIcon} width={25} />
+                  className="w-[80%] bg-transparent pl-3 text-[#6A6A6A]"
+                />
+                <img src={logo1} width={15} />
               </div>
             </div>
           </div>
@@ -368,28 +288,9 @@ const Hero = () => {
           duration: 1,
           delay: 0.5,
         }}
-        onClick={submitHandler}
       >
         Connect wallet
       </motion.button>
-
-      {/* Alert Box */}
-      <div>
-        {alert ? (
-          <div className="absolute -top-10 right-10 rounded-3xl w-[350px] h-[150px] bg-slate-900 py-4 px-3 text-xl font-bold text-white text-center">
-            <div>{`You have selected ${value} ${pay} which is equal to ${value} ${recieve}`}</div>
-
-            <button
-              className="bg-red-500 cursor-pointer px-3 py-1 rounded-xl mt-4"
-              onClick={closeAlertHandler}
-            >
-              CLOSE
-            </button>
-          </div>
-        ) : (
-          ""
-        )}
-      </div>
     </motion.div>
   );
 };

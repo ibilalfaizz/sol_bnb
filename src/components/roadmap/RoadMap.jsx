@@ -18,8 +18,8 @@ const Roadmap = () => {
 
       {/* Bottom */}
       <div className="mt-20 relative">
-        <div className="absolute w-full flex justify-around z-10">
-          <div className="flex flex-col items-center gap-5">
+        <div className="absolute w-full flex justify-around gap-10 md:gap-0 z-10">
+          <div className="flex flex-col items-center gap-5 ml-4 md:ml-0">
             <motion.div
               className="text-[#FF395C] w-[40px] h-[40px] text-center py-1 text-sm font-bold bg-white rounded-full border-[4px] border-[#FF395C]"
               initial={{ opacity: 0 }}
