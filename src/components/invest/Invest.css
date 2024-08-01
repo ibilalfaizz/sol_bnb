@@ -1,0 +1,54 @@
+.relative {
+    position: relative;
+  }
+  
+  .cross-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Ensure the overlay does not block interactions with the image */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+    border-radius: 50%/100px ;
+   
+  }
+  
+  .cross {
+    position: relative;
+    width: 60%;
+    height: 60%;
+    transform: rotate(25deg);
+    
+  }
+  
+  .line {
+    position: absolute;
+    background-color: red;
+    transform-origin: center;
+    
+    
+  }
+  
+  .line.diagonal1,
+  .line.diagonal2 {
+    width: 0; /* Start with zero width */
+    height: 3px; /* Thickness of the line */
+    
+  }
+  
+  .line.diagonal1 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(160deg); /* Center the line and rotate */
+  }
+  
+  .line.diagonal2 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-40deg); /* Center the line and rotate */
+  }
+  
