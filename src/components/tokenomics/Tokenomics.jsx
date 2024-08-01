@@ -1,230 +1,93 @@
 import React from "react";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import "./Tokenomics.css"; // Import the custom CSS
 
 function Tokenomics() {
+  const headingVariants = {
+    hidden: { opacity: 0, x: -100 },
+    visible: { opacity: 1, x: 0 },
+  };
+
+  // Animation variants for the container of sections
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.8, ease: 'easeOut', staggerChildren: 0.5 } },
+  };
+
+  // Animation variants for each individual section
+  const itemVariants = {
+    hidden: { opacity: 0, y: "50%" },
+    visible: { opacity: 1, y: "0%", transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
   return (
     <div className="bg-[#f7f7f7] lg:mt-[5rem] w-full">
       <div className="mx-4 lg:mx-[8rem] lg:pt-[4rem] mt-[2rem]">
-        <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0">
-          Core concept
-        </h3>
+        <motion.h3
+          className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0"
+          initial="hidden"
+          animate="visible"
+          variants={headingVariants}
+          transition={{ duration: 1 }} // Adjust duration as needed
+        >
+          Tokenomics.
+        </motion.h3>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 mt-8 w-full justify-center lg:justify-start gap-4">
-          <div className="bg-white border rounded-[18px] w-[100%] lg:max-w-[200px] px-8 py-6">
-            <div>
-              <svg class="w-full h-full" viewBox="0 0 100 100">
-                <circle
-                  class="text-[#f7f7f7] stroke-current"
-                  stroke-width="10"
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                ></circle>
+        <motion.div
+          className="grid-container mt-8 w-full justify-center lg:justify-start"
+          initial="hidden"
+          animate="visible"
+          variants={containerVariants}
+        >
+          {/* Each section item */}
+          {[30, 50, 40, 70, 75].map((percent, index) => (
+            <motion.div
+              key={index}
+              className="bg-white border rounded-[18px] w-[100%] lg:max-w-[200px] px-8 py-6"
+              variants={itemVariants}
+            >
+              <div>
+                <svg className="w-full h-full" viewBox="0 0 100 100">
+                  <circle
+                    className="text-[#f7f7f7] stroke-current"
+                    strokeWidth="10"
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="transparent"
+                  ></circle>
 
-                <circle
-                  class="text-[#FF385C]  progress-ring__circle stroke-current"
-                  stroke-width="10"
-                  stroke-linecap=""
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                  stroke-dasharray="251.2"
-                  stroke-dashoffset="calc(251.2 - (251.2 * 30) / 100)"
-                ></circle>
+                  <circle
+                    className="text-[#FF385C] progress-ring__circle stroke-current"
+                    strokeWidth="10"
+                    cx="50"
+                    cy="50"
+                    r="40"
+                    fill="transparent"
+                    strokeDasharray="251.2"
+                    strokeDashoffset={`calc(251.2 - (251.2 * ${percent}) / 100)`}
+                  ></circle>
 
-                <text
-                  className="font-bold"
-                  fill="#FF385C"
-                  x="50"
-                  y="50"
-                  color="red"
-                  text-anchor="middle"
-                  alignment-baseline="middle"
-                >
-                  30%
-                </text>
-              </svg>
+                  <text
+                    className="font-bold"
+                    fill="#FF385C"
+                    x="50"
+                    y="50"
+                    textAnchor="middle"
+                    alignmentBaseline="middle"
+                  >
+                    {percent}%
+                  </text>
+                </svg>
 
-              <h3 className="text-center text-[1rem] font-bold mt-2">
-                Presale
-              </h3>
-            </div>
-          </div>
-
-          <div className="bg-white border rounded-[18px] w-[100%] lg:max-w-[200px] px-8 py-6">
-            <div>
-              <svg class="w-full h-full" viewBox="0 0 100 100">
-                <circle
-                  class="text-[#f7f7f7] stroke-current"
-                  stroke-width="10"
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                ></circle>
-
-                <circle
-                  class="text-[#FF385C]  progress-ring__circle stroke-current"
-                  stroke-width="10"
-                  stroke-linecap=""
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                  stroke-dasharray="251.2"
-                  stroke-dashoffset="calc(251.2 - (251.2 * 50) / 100)"
-                ></circle>
-
-                <text
-                  className="font-bold"
-                  fill="#FF385C"
-                  x="50"
-                  y="50"
-                  color="red"
-                  text-anchor="middle"
-                  alignment-baseline="middle"
-                >
-                  50%
-                </text>
-              </svg>
-
-              <h3 className="text-center text-[1rem] font-bold mt-2">
-                Staking
-              </h3>
-            </div>
-          </div>
-
-          <div className="bg-white border rounded-[18px] w-[100%] lg:max-w-[200px] px-8 py-6">
-            <div>
-              <svg class="w-full -fhull" viewBox="0 0 100 100">
-                <circle
-                  class="text-[#f7f7f7] stroke-current"
-                  stroke-width="10"
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                ></circle>
-
-                <circle
-                  class="text-[#FF385C]  progress-ring__circle stroke-current"
-                  stroke-width="10"
-                  stroke-linecap=""
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                  stroke-dasharray="251.2"
-                  stroke-dashoffset="calc(251.2 - (251.2 * 40) / 100)"
-                ></circle>
-
-                <text
-                  className="font-bold"
-                  fill="#FF385C"
-                  x="50"
-                  y="50"
-                  color="red"
-                  text-anchor="middle"
-                  alignment-baseline="middle"
-                >
-                  40%
-                </text>
-              </svg>
-
-              <h3 className="text-center text-[1rem] font-bold mt-2">
-                Community Rewards
-              </h3>
-            </div>
-          </div>
-
-          <div className="bg-white border rounded-[18px] w-[100%] lg:max-w-[200px] px-8 py-6">
-            <div>
-              <svg class="w-full h-full" viewBox="0 0 100 100">
-                <circle
-                  class="text-[#f7f7f7] stroke-current"
-                  stroke-width="10"
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                ></circle>
-
-                <circle
-                  class="text-[#FF385C]  progress-ring__circle stroke-current"
-                  stroke-width="10"
-                  stroke-linecap=""
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                  stroke-dasharray="251.2"
-                  stroke-dashoffset="calc(251.2 - (251.2 * 70) / 100)"
-                ></circle>
-
-                <text
-                  className="font-bold"
-                  fill="#FF385C"
-                  x="50"
-                  y="50"
-                  color="red"
-                  text-anchor="middle"
-                  alignment-baseline="middle"
-                >
-                  70%
-                </text>
-              </svg>
-
-              <h3 className="text-center text-[1rem] font-bold mt-2">
-                DEX/CEX Liquidity
-              </h3>
-            </div>
-          </div>
-
-          <div className="bg-white border rounded-[18px] w-[100%] lg:max-w-[200px] px-8 py-6">
-            <div>
-              <svg class="w-full h-full" viewBox="0 0 100 100">
-                <circle
-                  class="text-[#f7f7f7] stroke-current"
-                  stroke-width="10"
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                ></circle>
-
-                <circle
-                  class="text-[#FF385C]  progress-ring__circle stroke-current"
-                  stroke-width="10"
-                  stroke-linecap=""
-                  cx="50"
-                  cy="50"
-                  r="40"
-                  fill="transparent"
-                  stroke-dasharray="251.2"
-                  stroke-dashoffset="calc(251.2 - (251.2 * 75) / 100)"
-                ></circle>
-
-                <text
-                  className="font-bold"
-                  fill="#FF385C"
-                  x="50"
-                  y="50"
-                  color="red"
-                  text-anchor="middle"
-                  alignment-baseline="middle"
-                >
-                  75%
-                </text>
-              </svg>
-
-              <h3 className="text-center text-[1rem] font-bold mt-2">
-                Marketing
-              </h3>
-            </div>
-          </div>
-        </div>
+                <h3 className="text-center text-[1rem] font-bold mt-2">
+                  {["Presale", "Staking", "Community Rewards", "DEX/CEX Liquidity", "Marketing"][index]}
+                </h3>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
 
         <div className="w-full text-center mt-[2.8rem] pb-[4rem]">
           <Link className="text-[#FF385C] text-sm lg:text-[1.5rem] font-bold border-[1px] border-[#FF385C] rounded-[50px] py-3 px-10">

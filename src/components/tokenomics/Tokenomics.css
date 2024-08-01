@@ -1,0 +1,37 @@
+/* Tokenomics.css */
+
+/* Default mobile layout (single column) */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Default to two columns */
+    gap: 1rem;
+  }
+  
+  /* Medium screens: single column layout */
+  @media (min-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
+    }
+  }
+  
+  /* Large screens: five columns layout */
+  @media (min-width: 1024px) {
+    .grid-container {
+      grid-template-columns: repeat(5, 1fr); /* Five columns for large screens */
+    }
+  }
+  
+  /* Adjust the grid layout for mobile to achieve 2-1-2 pattern */
+  @media (max-width: 767px) {
+    .grid-container > :nth-child(1),
+    .grid-container > :nth-child(2),
+    .grid-container > :nth-child(3) {
+      grid-column: span 1;
+    }
+  
+    .grid-container > :nth-child(4),
+    .grid-container > :nth-child(5) {
+      grid-column: span 1;
+    }
+  }
+  

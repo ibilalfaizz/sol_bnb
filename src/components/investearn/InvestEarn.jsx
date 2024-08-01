@@ -1,10 +1,31 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 function InvestEarn() {
+  // Define animation variants with sequential delays
+  const cardVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: index * 0.6, // Sequential delay for each card
+        duration: 1, // Duration of the animation
+        ease: "easeOut",
+      },
+    }),
+  };
+
   return (
-    <div className="lg:px-[8rem] pt-[2rem] bg-[#f7f7f7] w-full ">
+    <div className="lg:px-[8rem] pt-[2rem] bg-[#f7f7f7] w-full">
       <div className="flex-col lg:flex-row lg:flex xl:flex justify-between lg:gap-8 mt-[6rem] pb-[4rem] mx-4">
-        <div className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative">
+        <motion.div
+          className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative"
+          initial="hidden"
+          animate="visible"
+          variants={cardVariants}
+          custom={0} // Pass index as custom prop
+        >
           <span className="absolute top-[-1rem] bg-[#ff385c] text-[white] w-[45px] h-[45px] flex justify-center items-center rounded-[14px] border-[4px] border-[#f7f7f7] left-[-1rem]">
             1.
           </span>
@@ -16,9 +37,15 @@ function InvestEarn() {
             Each token represents a share in the revenue generated from these
             partnerships.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative my-8 lg:my-0">
+        <motion.div
+          className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative my-8 lg:my-0"
+          initial="hidden"
+          animate="visible"
+          variants={cardVariants}
+          custom={1} // Pass index as custom prop
+        >
           <span className="absolute top-[-1rem] bg-[#ff385c] text-[white] w-[45px] h-[45px] flex justify-center items-center rounded-[14px] border-[4px] border-[#f7f7f7] left-[-1rem]">
             2.
           </span>
@@ -30,9 +57,15 @@ function InvestEarn() {
             Each token represents a share in the revenue generated from these
             partnerships.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative">
+        <motion.div
+          className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative"
+          initial="hidden"
+          animate="visible"
+          variants={cardVariants}
+          custom={2} // Pass index as custom prop
+        >
           <span className="absolute top-[-1rem] bg-[#ff385c] text-[white] w-[45px] h-[45px] flex justify-center items-center rounded-[14px] border-[4px] border-[#f7f7f7] left-[-1rem]">
             3.
           </span>
@@ -44,7 +77,7 @@ function InvestEarn() {
             Each token represents a share in the revenue generated from these
             partnerships.
           </p>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
