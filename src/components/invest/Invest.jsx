@@ -8,7 +8,7 @@ import invetMobileIcon from "../../assets/icons/investMobileIcon.png";
 
 function Invest() {
   return (
-    <div>
+    <div className="mt-[5rem]">
       <h3 className="text-[1.875rem] font-bold text-center">
         Invest, earn, and travel with{" "}
         <span className="text-[#FF385C]">SolBnB.</span>
