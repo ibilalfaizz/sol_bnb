@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import image1 from "../../assets/images/image1.svg";
 
 import image2 from "../../assets/images/image2.svg";
@@ -13,16 +13,6 @@ import { BsExclamation } from "react-icons/bs";
 import { motion } from "framer-motion";
 
 const solbnb = {
-  visible: { opacity: 1, x: 0, z: 0 },
-  hidden: { opacity: 0, x: -300, z: -20 },
-};
-
-const rightBox = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: -500 },
-};
-
-const button = {
   visible: { opacity: 1, x: 0, z: 0 },
   hidden: { opacity: 0, x: -300, z: -20 },
 };
@@ -57,122 +47,133 @@ const img3y = {
   hidden: { opacity: 0, y: 300 },
 };
 
-const Hero = () => {
-  return (
-    <motion.div className="w-[90%] h-[65%] flex items-center mx-auto rounded-2xl px-10 py-4 bg-gradient-to-r from-[#F9F9F9] to-white border-[4px] border-[#F9F9F9] relative">
-      {/* Left Section */}
-      <div className="w-1/3 h-full pt-5 relative">
-        <div className="w-full overflow-hidden">
-          <motion.div
-            className="text-4xl text-[#FF385C] font-bold"
-            initial="hidden"
-            animate="visible"
-            variants={solbnb}
-            transition={{
-              duration: 1,
-            }}
-          >
-            SolBnB.
-          </motion.div>
-          <motion.div
-            className="text-4xl font-bold"
-            initial="hidden"
-            animate="visible"
-            variants={solbnb}
-            transition={{
-              duration: 1.2,
-            }}
-          >
-            Tokenized Airbnb <br /> Partnerships on <br /> Solana
-          </motion.div>
-        </div>
-        <div className="w-full overflow-hidden">
-          <motion.div
-            initial="hidden"
-            animate="visible"
-            variants={img1x}
-            transition={{
-              duration: 1,
-            }}
-            className="absolute left-16 bottom-4"
-          >
-            <motion.img
-              src={image1}
-              width={180}
-              initial="hidden"
-              animate="visible"
-              variants={img1y}
-              transition={{
-                duration: 0.5,
-              }}
-            />
-          </motion.div>
-          {/* <img src={image2} width={100} className='absolute right-12 bottom-40'/> */}
+const rightBox = {
+  visible: { opacity: 1, y: 0 },
+  hidden: { opacity: 0, y: 500 },
+};
 
-          <motion.div
+const HeroMobile = () => {
+  return (
+    <div className="w-full">
+      {/* Top */}
+      <div className="w-full relative flex justify-end">
+        <motion.div
+          className=""
+          initial="hidden"
+          animate="visible"
+          variants={solbnb}
+          transition={{
+            duration: 0.5,
+            delay: 1,
+          }}
+        >
+          <img src={logo1} width={300} />
+        </motion.div>
+
+        {/* img1 */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={img1x}
+          transition={{
+            duration: 1,
+            delay: 1,
+          }}
+          className="absolute left-16 bottom-4"
+        >
+          <motion.img
+            src={image1}
+            width={120}
             initial="hidden"
             animate="visible"
-            variants={img2x}
+            variants={img1y}
             transition={{
               duration: 0.5,
+              delay: 1,
             }}
-            className="absolute right-10 bottom-40"
-          >
-            <motion.img
-              src={image2}
-              width={100}
-              initial="hidden"
-              animate="visible"
-              variants={img2y}
-              transition={{
-                duration: 1,
-              }}
-            />
-          </motion.div>
+          />
+        </motion.div>
 
-          {/* <img src={image3} width={100} className='absolute -right-10 top-5'/> */}
-
-          <motion.div
+        {/* Img 2 */}
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={img2x}
+          transition={{
+            duration: 0.5,
+            delay: 1,
+          }}
+          className="absolute left-40 bottom-32"
+        >
+          <motion.img
+            src={image2}
+            width={80}
             initial="hidden"
             animate="visible"
-            variants={img3x}
+            variants={img2y}
             transition={{
-              duration: 0.4,
+              duration: 1,
+              delay: 1,
             }}
-            className="absolute -right-10 top-5"
-          >
-            <motion.img
-              src={image3}
-              width={100}
-              initial="hidden"
-              animate="visible"
-              variants={img3y}
-              transition={{
-                duration: 0.8,
-              }}
-            />
-          </motion.div>
-        </div>
+          />
+        </motion.div>
+
+        {/* Img 3 */}
+
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={img3x}
+          transition={{
+            duration: 0.4,
+            delay: 1,
+          }}
+          className="absolute left-44 top-2"
+        >
+          <motion.img
+            src={image3}
+            width={80}
+            initial="hidden"
+            animate="visible"
+            variants={img3y}
+            transition={{
+              duration: 0.8,
+              delay: 1,
+            }}
+          />
+        </motion.div>
       </div>
 
-      {/* Middle Logo */}
-      <motion.div
-        className="w-1/3 z-10"
-        initial={{ opacity: 0, scale: 0.5 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{
-          duration: 1.5,
-          delay: 0.5,
-          ease: [0, 0.71, 0.2, 1.01],
-        }}
-      >
-        <img src={logo1} className=" scale-125" />
-      </motion.div>
-
-      {/* Right Section */}
-      <div className="w-1/3 h-full overflow-hidden">
+      {/* Middle Section */}
+      <div>
         <motion.div
-          className="w-full h-full ml-6 px-10 flex flex-col items-center gap-3"
+          className="text-5xl text-[#FF385C] mt-4 font-bold ml-10"
+          initial="hidden"
+          animate="visible"
+          variants={solbnb}
+          transition={{
+            duration: 1,
+          }}
+        >
+          SolBnB.
+        </motion.div>
+        <motion.div
+          className="text-4xl font-bold ml-10"
+          initial="hidden"
+          animate="visible"
+          variants={solbnb}
+          transition={{
+            duration: 1.2,
+          }}
+        >
+          Tokenized Airbnb <br /> Partnerships on <br /> Solana
+        </motion.div>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="w-[80%] mx-auto h-full overflow-hidden mt-5">
+        <motion.div
+          className="w-full border-[2px] h-full px-10 py-4 rounded-2xl flex flex-col items-center gap-3"
           initial="hidden"
           animate="visible"
           variants={rightBox}
@@ -276,23 +277,14 @@ const Hero = () => {
               </div>
             </div>
           </div>
+
+          <button className="w-full bg-[#FD395C] text-center rounded-full py-3 text-sm font-bold text-white">
+            Connect wallet
+          </button>
         </motion.div>
       </div>
-      <motion.button
-        className="absolute overflow-hidden -bottom-10 right-12 w-[26%] bg-[#FD395C] text-center rounded-full py-3 text-sm font-bold text-white"
-        initial="hidden"
-        animate="visible"
-        variants={button}
-        viewport={{ once: true }}
-        transition={{
-          duration: 1,
-          delay: 0.5,
-        }}
-      >
-        Connect wallet
-      </motion.button>
-    </motion.div>
+    </div>
   );
 };
 
-export default Hero;
+export default HeroMobile;
