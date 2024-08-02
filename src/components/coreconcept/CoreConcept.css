@@ -1,0 +1,71 @@
+
+/* General styles for both mobile and desktop */
+.core-concept-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem; 
+  }
+  
+  /* Container for the content */
+  .core-concept-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; 
+  }
+  
+  /* Mobile-specific styles */
+  @media (max-width: 1023px) {
+    .core-concept-content {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .core-concept-image {
+      margin-bottom: 2rem; /* Add space below the image */
+    }
+  
+    .core-concept-text {
+      text-align: center;
+    }
+  }
+  
+  /* Desktop-specific styles */
+  @media (min-width: 1024px) {
+    .core-concept-container {
+      align-items: flex-start;
+    }
+  
+    .core-concept-content {
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+  
+    .core-concept-image {
+      margin-left: 2rem; /* Space between text and image */
+      display: flex;
+      justify-content: flex-end;
+      width: 40%; 
+      order: 2; 
+    }
+  
+    .core-concept-text {
+      text-align: left;
+      width: 60%; /* Adjust width as needed */
+      order: 1; /* Ensure text is on the left side */
+    }
+  
+    .core-concept-image img {
+      max-width: 100%; /* Ensure image does not overflow */
+    }
+  }
+  
+  /* Additional styles for responsiveness */
+  @media (min-width: 1280px) {
+    .core-concept-text {
+      width: 50%; /* Adjust width for larger screens */
+    }
+  }
+  

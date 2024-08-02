@@ -1,6 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -51,18 +50,12 @@ function Slider() {
     },
   };
 
-  // Hook for in-view detection
-  const [ref, inView] = useInView({
-    triggerOnce: true,
-    threshold: 0.1,
-  });
-
   return (
-    <div className="mt-6 lg:mt-0" ref={ref}>
+    <div className="mt-6 lg:mt-0 px-4 lg:px-6 py-4 lg:py-6"> {/* Adjusted padding */}
       <motion.div
         className="owl-theme w-full"
         initial="hidden"
-        animate={inView ? "visible" : "hidden"}
+        animate="visible"
         variants={containerVariants}
       >
         <OwlCarousel className="owl-theme w-full" {...options}>
@@ -70,11 +63,11 @@ function Slider() {
             className="item"
             variants={cardVariants}
           >
-            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 mx-10 lg:mx-0 pb-[2rem] pl-4 lg:p-0 pt-4">
-              <h3 className="text-[1.5rem] w-[10px] leading-[1.8rem]">
+            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 p-4 lg:p-6"> {/* Adjusted padding */}
+              <h3 className="text-[1.5rem] leading-[1.8rem]">
                 Solana Blockchain
               </h3>
-              <p className="text-[0.875rem] text-[#6a6a6a] mt-1 lg:w-[140px]">
+              <p className="text-[0.875rem] text-[#6a6a6a] mt-2">
                 Utilizing Solana for fast, low-cost transactions.
               </p>
             </div>
@@ -84,11 +77,11 @@ function Slider() {
             className="item"
             variants={cardVariants}
           >
-            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 mx-10 lg:mx-0 pb-[2rem] pl-4 lg:p-0 pt-4">
-              <h3 className="text-[1.5rem] w-[10px] leading-[1.8rem]">
+            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 p-4 lg:p-6"> {/* Adjusted padding */}
+              <h3 className="text-[1.5rem] leading-[1.8rem]">
                 Agency Partnerships
               </h3>
-              <p className="text-[0.875rem] text-[#6a6a6a] mt-1 lg:w-[145px]">
+              <p className="text-[0.875rem] text-[#6a6a6a] mt-2">
                 Collaborate with multiple Airbnb rental agencies globally.
               </p>
             </div>
@@ -98,11 +91,11 @@ function Slider() {
             className="item"
             variants={cardVariants}
           >
-            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 mx-10 lg:mx-0 pb-[2rem] pl-4 lg:p-0 pt-4">
-              <h3 className="text-[1.5rem] w-[10px] leading-[1.8rem]">
+            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 p-4 lg:p-6"> {/* Adjusted padding */}
+              <h3 className="text-[1.5rem] leading-[1.8rem]">
                 Revenue Sharing
               </h3>
-              <p className="text-[0.875rem] text-[#6a6a6a] mt-1 lg:w-[160px]">
+              <p className="text-[0.875rem] text-[#6a6a6a] mt-2">
                 Distribute a portion of partnership revenues to token holders in SOL.
               </p>
             </div>
@@ -112,11 +105,11 @@ function Slider() {
             className="item"
             variants={cardVariants}
           >
-            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 mx-10 lg:mx-0 pb-[2rem] pl-4 lg:p-0 pt-4">
-              <h3 className="text-[1.5rem] w-[10px] leading-[1.8rem]">
+            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 p-4 lg:p-6"> {/* Adjusted padding */}
+              <h3 className="text-[1.5rem] leading-[1.8rem]">
                 Staking Rewards
               </h3>
-              <p className="text-[0.875rem] text-[#6a6a6a] mt-1 lg:w-[140px]">
+              <p className="text-[0.875rem] text-[#6a6a6a] mt-2">
                 Additional benefits for long-term token stakers.
               </p>
             </div>
@@ -126,11 +119,11 @@ function Slider() {
             className="item"
             variants={cardVariants}
           >
-            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 mx-10 lg:mx-0 pb-[2rem] pl-4 lg:p-0 pt-4">
-              <h3 className="text-[1.5rem] w-[10px] leading-[1.8rem]">
+            <div className="border lg:border-0 rounded-[18px] lg:rounded-0 p-4 lg:p-6"> {/* Adjusted padding */}
+              <h3 className="text-[1.5rem] leading-[1.8rem]">
                 NFT Integration
               </h3>
-              <p className="text-[0.875rem] text-[#6a6a6a] mt-1 lg:w-[200px]">
+              <p className="text-[0.875rem] text-[#6a6a6a] mt-2">
                 NFTs representing partnership tiers or special access to premium listings.
               </p>
             </div>
