@@ -1,37 +1,47 @@
 /* Tokenomics.css */
 
-/* Default mobile layout (single column) */
+/* General styles for the grid container */
 .grid-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Default to two columns */
-    gap: 1rem;
+  display: grid;
+  gap: 1rem;
+}
+
+/* Desktop view - Single row */
+@media (min-width: 1024px) {
+  .grid-container {
+    grid-template-columns: repeat(5, 1fr); /* 5 items in a single row */
+    grid-template-rows: auto;
   }
-  
-  /* Medium screens: single column layout */
-  @media (min-width: 768px) {
-    .grid-container {
-      grid-template-columns: repeat(2, 1fr); /* Two columns for medium screens */
-    }
+}
+
+/* Mobile view - 2-1-2 layout */
+@media (max-width: 1023px) {
+  .grid-container {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      "item1 item2"
+      "item3 item3"
+      "item4 item5";
   }
-  
-  /* Large screens: five columns layout */
-  @media (min-width: 1024px) {
-    .grid-container {
-      grid-template-columns: repeat(5, 1fr); /* Five columns for large screens */
-    }
+
+  /* Assign grid areas to individual items */
+  .grid-container > :nth-child(1) {
+    grid-area: item1;
   }
-  
-  /* Adjust the grid layout for mobile to achieve 2-1-2 pattern */
-  @media (max-width: 767px) {
-    .grid-container > :nth-child(1),
-    .grid-container > :nth-child(2),
-    .grid-container > :nth-child(3) {
-      grid-column: span 1;
-    }
-  
-    .grid-container > :nth-child(4),
-    .grid-container > :nth-child(5) {
-      grid-column: span 1;
-    }
+  .grid-container > :nth-child(2) {
+    grid-area: item2;
   }
-  
+  .grid-container > :nth-child(3) {
+    grid-area: item3;
+    /* Make the 3rd child smaller */
+    width: calc(100% - 1rem); /* Adjust width */
+    height: auto; /* Maintain aspect ratio */
+  }
+  .grid-container > :nth-child(4) {
+    grid-area: item4;
+  }
+  .grid-container > :nth-child(5) {
+    grid-area: item5;
+  }
+}
