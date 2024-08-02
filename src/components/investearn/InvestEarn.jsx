@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 function InvestEarn() {
   // Define animation variants with sequential delays
@@ -16,13 +17,19 @@ function InvestEarn() {
     }),
   };
 
+  // Hook for in-view detection
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <div className="lg:px-[8rem] pt-[2rem] bg-[#f7f7f7] w-full">
+    <div className="lg:px-[8rem] pt-[2rem] bg-[#f7f7f7] w-full" ref={ref}>
       <div className="flex-col lg:flex-row lg:flex xl:flex justify-between lg:gap-8 mt-[6rem] pb-[4rem] mx-4">
         <motion.div
           className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative"
           initial="hidden"
-          animate="visible"
+          animate={inView ? "visible" : "hidden"}
           variants={cardVariants}
           custom={0} // Pass index as custom prop
         >
@@ -42,7 +49,7 @@ function InvestEarn() {
         <motion.div
           className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative my-8 lg:my-0"
           initial="hidden"
-          animate="visible"
+          animate={inView ? "visible" : "hidden"}
           variants={cardVariants}
           custom={1} // Pass index as custom prop
         >
@@ -62,7 +69,7 @@ function InvestEarn() {
         <motion.div
           className="bg-white border rounded-[16px] pt-[2.2rem] pb-[1.6rem] px-[2rem] relative"
           initial="hidden"
-          animate="visible"
+          animate={inView ? "visible" : "hidden"}
           variants={cardVariants}
           custom={2} // Pass index as custom prop
         >

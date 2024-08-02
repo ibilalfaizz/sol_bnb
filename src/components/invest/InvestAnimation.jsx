@@ -1,9 +1,9 @@
 import React from "react";
-
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer"; // Correct import
 import stand from "../../assets/images/STAND.svg";
 import ellipse from "../../assets/images/Ellipse 1.svg";
 import box from "../../assets/images/BOX.svg";
-import { motion } from "framer-motion";
 import house1 from "../../assets/images/house 1.svg";
 import house2 from "../../assets/images/house 2.svg";
 import house3 from "../../assets/images/house 3.svg";
@@ -12,43 +12,35 @@ import return2 from "../../assets/images/return2.svg";
 import return3 from "../../assets/images/return3.svg";
 import return4 from "../../assets/images/return4.svg";
 
+// Define animation variants
 const rightBox = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 0, x: 500 },
 };
 
-const house1x = {
+const leftBox = {
   visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -250 },
-};
-const house1y = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: -300 },
-};
-
-const house2x = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -250 },
-};
-const house2y = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: -300 },
-};
-
-const house3x = {
-  visible: { opacity: 1, x: 0 },
-  hidden: { opacity: 0, x: -250 },
-};
-const house3y = {
-  visible: { opacity: 1, y: 0 },
-  hidden: { opacity: 0, y: -300 },
+  hidden: { opacity: 0, x: -500 },
 };
 
 const InvestAnimation = () => {
+  const { ref: leftRef, inView: leftInView } = useInView({ triggerOnce: true });
+  const { ref: rightRef, inView: rightInView } = useInView({ triggerOnce: true });
+
   return (
     <motion.div className="w-[100%] h-[800px] md:h-[50vh] bg-[#F7F7F7] relative flex flex-col md:flex-row">
       {/* Left */}
-      <motion.div className="md:w-1/2 w-full md:h-[50vh] h-[80%] overflow-hidden">
+      <motion.div
+        ref={leftRef}
+        className="md:w-1/2 w-full md:h-[50vh] h-[80%] overflow-hidden"
+        initial="hidden"
+        animate={leftInView ? "visible" : "hidden"}
+        variants={leftBox}
+        transition={{
+          duration: 1,
+          delay: 0.5,
+        }}
+      >
         <motion.div className="w-full h-full">
           <motion.div className="w-1/2 h-full mx-auto relative md:ml-52">
             <motion.img
@@ -56,7 +48,7 @@ const InvestAnimation = () => {
               width={200}
               className="absolute bottom-12"
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={leftInView ? { opacity: 1, scale: 1 } : {}}
               transition={{
                 duration: 1.5,
                 delay: 0.5,
@@ -66,9 +58,9 @@ const InvestAnimation = () => {
             <motion.img
               src={stand}
               width={150}
-              className="absolute -bottom-0 left-6 "
+              className="absolute -bottom-0 left-6"
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={leftInView ? { opacity: 1, scale: 1 } : {}}
               transition={{
                 duration: 1.5,
                 delay: 0.5,
@@ -79,7 +71,7 @@ const InvestAnimation = () => {
             <motion.div
               className="absolute bottom-20 left-8"
               initial={{ opacity: 0, x: -300 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={leftInView ? { opacity: 1, x: 0 } : {}}
               transition={{
                 duration: 3,
                 delay: 1.5,
@@ -89,9 +81,8 @@ const InvestAnimation = () => {
               <motion.img
                 src={house1}
                 width={120}
-                className=""
                 initial={{ opacity: 0, y: -300 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={leftInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 3,
                   delay: 1.5,
@@ -103,7 +94,7 @@ const InvestAnimation = () => {
             <motion.div
               className="absolute bottom-20 left-8"
               initial={{ opacity: 0, x: -300 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={leftInView ? { opacity: 1, x: 0 } : {}}
               transition={{
                 duration: 3,
                 delay: 1,
@@ -113,9 +104,8 @@ const InvestAnimation = () => {
               <motion.img
                 src={house2}
                 width={100}
-                className=""
                 initial={{ opacity: 0, y: -300 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={leftInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 3,
                   delay: 1,
@@ -127,7 +117,7 @@ const InvestAnimation = () => {
             <motion.div
               className="absolute bottom-24 left-8"
               initial={{ opacity: 0, x: -300 }}
-              animate={{ opacity: 1, x: 0 }}
+              animate={leftInView ? { opacity: 1, x: 0 } : {}}
               transition={{
                 duration: 3,
                 delay: 0.5,
@@ -137,9 +127,8 @@ const InvestAnimation = () => {
               <motion.img
                 src={house3}
                 width={80}
-                className=""
                 initial={{ opacity: 0, y: -300 }}
-                animate={{ opacity: 1, y: 0 }}
+                animate={leftInView ? { opacity: 1, y: 0 } : {}}
                 transition={{
                   duration: 3,
                   delay: 0.5,
@@ -149,11 +138,10 @@ const InvestAnimation = () => {
             </motion.div>
 
             {/* Return */}
-
             <motion.div
               className="absolute bottom-24 left-10"
               initial={{ opacity: 0, x: 0 }}
-              animate={{ opacity: 1, x: 300 }}
+              animate={leftInView ? { opacity: 1, x: 300 } : {}}
               transition={{
                 duration: 4,
                 delay: 4.5,
@@ -163,9 +151,8 @@ const InvestAnimation = () => {
               <motion.img
                 src={return1}
                 width={80}
-                className=""
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: -300 }}
+                animate={leftInView ? { opacity: 1, y: -300 } : {}}
                 transition={{
                   duration: 4,
                   delay: 4.5,
@@ -177,7 +164,7 @@ const InvestAnimation = () => {
             <motion.div
               className="absolute bottom-24 left-12"
               initial={{ opacity: 0, x: 0 }}
-              animate={{ opacity: 1, x: 300 }}
+              animate={leftInView ? { opacity: 1, x: 300 } : {}}
               transition={{
                 duration: 4,
                 delay: 4,
@@ -187,9 +174,8 @@ const InvestAnimation = () => {
               <motion.img
                 src={return2}
                 width={80}
-                className=""
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: -300 }}
+                animate={leftInView ? { opacity: 1, y: -300 } : {}}
                 transition={{
                   duration: 4,
                   delay: 4,
@@ -201,7 +187,7 @@ const InvestAnimation = () => {
             <motion.div
               className="absolute bottom-24 left-12"
               initial={{ opacity: 0, x: 0 }}
-              animate={{ opacity: 1, x: 300 }}
+              animate={leftInView ? { opacity: 1, x: 300 } : {}}
               transition={{
                 duration: 4,
                 delay: 3.5,
@@ -211,9 +197,8 @@ const InvestAnimation = () => {
               <motion.img
                 src={return3}
                 width={80}
-                className=""
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: -300 }}
+                animate={leftInView ? { opacity: 1, y: -300 } : {}}
                 transition={{
                   duration: 4,
                   delay: 3.5,
@@ -225,7 +210,7 @@ const InvestAnimation = () => {
             <motion.div
               className="absolute bottom-24 left-12"
               initial={{ opacity: 0, x: 0 }}
-              animate={{ opacity: 1, x: 300 }}
+              animate={leftInView ? { opacity: 1, x: 300 } : {}}
               transition={{
                 duration: 4,
                 delay: 3,
@@ -235,9 +220,8 @@ const InvestAnimation = () => {
               <motion.img
                 src={return4}
                 width={80}
-                className=""
                 initial={{ opacity: 0, y: 100 }}
-                animate={{ opacity: 1, y: -300 }}
+                animate={leftInView ? { opacity: 1, y: -300 } : {}}
                 transition={{
                   duration: 4,
                   delay: 3,
@@ -246,15 +230,12 @@ const InvestAnimation = () => {
               />
             </motion.div>
 
-            {/* <motion.img src={house2} width={120} className='absolute bottom-20 left-8'/> */}
-            {/* <motion.img src={house3} width={120} className='absolute bottom-20 left-8'/> */}
-
             <motion.img
               src={box}
               width={100}
               className="absolute bottom-20 left-12"
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
+              animate={leftInView ? { opacity: 1, scale: 1 } : {}}
               transition={{
                 duration: 2,
                 delay: 1,
@@ -266,11 +247,21 @@ const InvestAnimation = () => {
       </motion.div>
 
       {/* Right */}
-      <motion.div className="md:w-1/2 w-full md:text-start text-center md:h-full h-[30%] md:px-5 flex flex-col mt-5 md:mt-0 md:justify-center items-start overflow-hidden">
+      <motion.div
+        ref={rightRef}
+        className="md:w-1/2 w-full md:text-start text-center md:h-full h-[30%] md:px-5 flex flex-col mt-5 md:mt-0 md:justify-center items-start overflow-hidden"
+        initial="hidden"
+        animate={rightInView ? "visible" : "hidden"}
+        variants={rightBox}
+        transition={{
+          duration: 1,
+          delay: 0.5,
+        }}
+      >
         <motion.div
           className="w-full md:text-5xl text-3xl font-bold"
           initial="hidden"
-          animate="visible"
+          animate={rightInView ? "visible" : "hidden"}
           variants={rightBox}
           transition={{
             duration: 1,
@@ -283,7 +274,7 @@ const InvestAnimation = () => {
         <motion.div
           className="text-[#6A6A6A] mt-5 mx-auto md:mx-0"
           initial="hidden"
-          animate="visible"
+          animate={rightInView ? "visible" : "hidden"}
           variants={rightBox}
           transition={{
             duration: 1,
@@ -298,4 +289,5 @@ const InvestAnimation = () => {
     </motion.div>
   );
 };
+
 export default InvestAnimation;

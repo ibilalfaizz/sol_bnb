@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
@@ -50,12 +51,18 @@ function Slider() {
     },
   };
 
+  // Hook for in-view detection
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
   return (
-    <div className="mt-6 lg:mt-0">
+    <div className="mt-6 lg:mt-0" ref={ref}>
       <motion.div
         className="owl-theme w-full"
         initial="hidden"
-        animate="visible"
+        animate={inView ? "visible" : "hidden"}
         variants={containerVariants}
       >
         <OwlCarousel className="owl-theme w-full" {...options}>
