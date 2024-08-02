@@ -38,8 +38,22 @@ function Technology() {
     return [ref, controls];
   };
 
-  // Create refs and controls for the container
+  // Create refs and controls for the container and the key difference section
   const [containerRef, containerControls] = useScrollAnimation();
+  const [keyDifferenceRef, keyDifferenceControls] = useScrollAnimation();
+  const [imageRef, imageControls] = useScrollAnimation();
+
+  // Animation variants for key difference section
+  const keyDifferenceVariants = {
+    hidden: { opacity: 0, x: -50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
+
+  // Animation variants for the image
+  const imageVariants = {
+    hidden: { opacity: 0, x: 50 },
+    visible: { opacity: 1, x: 0, transition: { duration: 0.6, ease: 'easeOut' } },
+  };
 
   return (
     <div className="mx-4 lg:mx-[8rem] mt-[2rem] lg:mt-[5rem]">
@@ -91,8 +105,16 @@ function Technology() {
         </motion.div>
       </motion.div>
 
-      <div className='bg-[#f7f7f7] rounded-[16px] lg:px-10 lg:py-8 lg:mt-[5rem] grid lg:flex items-center relative'>
-        <div className='order-2 mx-[2rem] lg:mx-0'>
+      <motion.div
+        className='bg-[#f7f7f7] rounded-[16px] lg:px-10 lg:py-8 lg:mt-[5rem] grid lg:flex items-center relative'
+        initial="hidden"
+        animate={keyDifferenceControls}
+        ref={keyDifferenceRef}
+      >
+        <motion.div
+          className='order-2 mx-[2rem] lg:mx-0'
+          variants={keyDifferenceVariants}
+        >
           <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-left mt-[1.8rem] lg:mt-0">
             Key Difference
           </h3>
@@ -102,12 +124,18 @@ function Technology() {
             <li className='text-[1rem] leading-[2rem] lg:w-[380px]'>Revenue tied to partner performance rather than specific properties.</li>
             <li className='text-[1rem] leading-[2rem] lg:w-[380px]'>Potentially lower operational costs but higher dependence on partner quality.</li>
           </ul>
-        </div>
+        </motion.div>
 
-        <div className='lg:absolute lg:right-0'>
+        <motion.div
+          className='lg:absolute lg:right-0'
+          variants={imageVariants}
+          initial="hidden"
+          animate={imageControls}
+          ref={imageRef}
+        >
           <img className='w-full max-w-[350px] mx-auto lg:max-w-[600px] lg:h-auto' src={bigmobile} alt='' />
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
 }
