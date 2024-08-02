@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer"; // Correct import
+import { useInView } from "react-intersection-observer";
 import stand from "../../assets/images/STAND.svg";
 import ellipse from "../../assets/images/Ellipse 1.svg";
 import box from "../../assets/images/BOX.svg";
@@ -21,6 +21,13 @@ const rightBox = {
 const leftBox = {
   visible: { opacity: 1, x: 0 },
   hidden: { opacity: 0, x: -500 },
+};
+
+// Define mobile-specific animations
+const mobileBox = {
+  hidden: { opacity: 0, scale: 0.8, rotate: 0 },
+  visible: { opacity: 1, scale: 1, rotate: 360 },
+  popUp: { opacity: 1, scale: 1, y: [0, -20, 0] },
 };
 
 const InvestAnimation = () => {
@@ -88,6 +95,7 @@ const InvestAnimation = () => {
                   delay: 1.5,
                   repeat: Infinity,
                 }}
+                className="mobile-animation"
               />
             </motion.div>
 
@@ -111,6 +119,7 @@ const InvestAnimation = () => {
                   delay: 1,
                   repeat: Infinity,
                 }}
+                className="mobile-animation"
               />
             </motion.div>
 
@@ -134,6 +143,7 @@ const InvestAnimation = () => {
                   delay: 0.5,
                   repeat: Infinity,
                 }}
+                className="mobile-animation"
               />
             </motion.div>
 
@@ -158,6 +168,7 @@ const InvestAnimation = () => {
                   delay: 4.5,
                   repeat: Infinity,
                 }}
+                className="mobile-animation"
               />
             </motion.div>
 
@@ -181,6 +192,7 @@ const InvestAnimation = () => {
                   delay: 4,
                   repeat: Infinity,
                 }}
+                className="mobile-animation"
               />
             </motion.div>
 
@@ -204,6 +216,7 @@ const InvestAnimation = () => {
                   delay: 3.5,
                   repeat: Infinity,
                 }}
+                className="mobile-animation"
               />
             </motion.div>
 
@@ -227,6 +240,7 @@ const InvestAnimation = () => {
                   delay: 3,
                   repeat: Infinity,
                 }}
+                className="mobile-animation"
               />
             </motion.div>
 
@@ -249,7 +263,7 @@ const InvestAnimation = () => {
       {/* Right */}
       <motion.div
         ref={rightRef}
-        className="md:w-1/2 w-full md:text-start text-center md:h-full h-[30%] md:px-5 flex flex-col mt-5 md:mt-0 md:justify-center items-start overflow-hidden"
+        className="md:w-1/2 w-full md:text-start text-center md:h-full h-[30%] md:px-5 flex flex-col items-center justify-center"
         initial="hidden"
         animate={rightInView ? "visible" : "hidden"}
         variants={rightBox}
@@ -258,33 +272,30 @@ const InvestAnimation = () => {
           delay: 0.5,
         }}
       >
-        <motion.div
-          className="w-full md:text-5xl text-3xl font-bold"
-          initial="hidden"
-          animate={rightInView ? "visible" : "hidden"}
-          variants={rightBox}
-          transition={{
-            duration: 1,
-            delay: 0.5,
-          }}
+        <motion.h1
+          className="text-3xl md:text-5xl font-bold mb-4"
+          initial={{ opacity: 0, y: -50 }}
+          animate={rightInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, delay: 0.5 }}
         >
-          Invest, Earn, Travel, <br />{" "}
-          <span className="text-[#FF385C]">Repeat.</span>
-        </motion.div>
-        <motion.div
-          className="text-[#6A6A6A] mt-5 mx-auto md:mx-0"
-          initial="hidden"
-          animate={rightInView ? "visible" : "hidden"}
-          variants={rightBox}
-          transition={{
-            duration: 1,
-            delay: 1,
-          }}
+          Investment Opportunities
+        </motion.h1>
+        <motion.p
+          className="text-base md:text-lg mb-6"
+          initial={{ opacity: 0, y: 20 }}
+          animate={rightInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 1, delay: 1 }}
         >
-          Invest in vacation rentals worldwide with SolBnB's innovative <br />{" "}
-          tokenized model. Simply buy, stake, and earn - we manage the <br />{" "}
-          partnerships and properties for you.
-        </motion.div>
+          Discover the best opportunities for your future investments with our comprehensive analysis and insights.
+        </motion.p>
+        <motion.button
+          className="bg-blue-500 text-white py-2 px-4 rounded"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={rightInView ? { opacity: 1, scale: 1 } : {}}
+          transition={{ duration: 0.5, delay: 1.5 }}
+        >
+          Learn More
+        </motion.button>
       </motion.div>
     </motion.div>
   );
