@@ -6,6 +6,7 @@ import icon3 from "../../assets/icons/risk3.png";
 import icon4 from "../../assets/icons/risk4.png";
 import icon5 from "../../assets/icons/risk5.png";
 
+
 const cardVariants = {
   hidden: {
     opacity: 0,

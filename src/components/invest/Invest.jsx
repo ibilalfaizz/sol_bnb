@@ -5,6 +5,7 @@ import Mapflow1 from "../../assets/icons/MapFlow1.gif";
 import investLeft from "../../assets/icons/invest-left.png";
 import investRight from "../../assets/icons/invest-right.png";
 import invetMobileIcon from "../../assets/icons/investMobileIcon.png";
+import {Container} from "react-bootstrap"
 
 // Define animation variants
 const mapVariants = {
@@ -38,7 +39,8 @@ function Invest() {
   ];
 
   return (
-    <div className="mt-[5rem]">
+  
+    <div className="mt-[4rem] ">
       <motion.h3
         className="text-[1.875rem] font-bold text-center"
         ref={titleRef}
@@ -50,22 +52,38 @@ function Invest() {
         <span className="text-[#FF385C]">SolBnB.</span>
       </motion.h3>
 
-      <div className="block w-full lg:flex justify-center items-center lg:px-[5rem] lg:mt-[4rem]">
+      <div className="block w-full lg:flex flex-col lg:flex-row justify-center items-center lg:px-[5rem] lg:mt-[4rem]">
+        {/* Desktop Left Image */}
         <motion.div
-          className="flex-shrink-0"
+          className="hidden xl:block lg:block flex-shrink-0"
           initial={{ opacity: 0, scale: 0.8 }}
           animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.2 }}
         >
           <img
-            className="w-full max-w-[350px] h-[300px] hidden xl:block lg:block md:hidden"
+            className="w-full max-w-[350px] h-[300px] "
             src={investLeft}
             alt="Invest Left"
           />
         </motion.div>
 
+        {/* Mobile Icon - Move to the top in mobile view */}
         <motion.div
-          className="relative"
+          className="flex-shrink-0 block xl:hidden lg:hidden"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.8 }}
+        >
+          <img
+            className="w-full max-w-[400px]"
+            src={invetMobileIcon}
+            alt="Invest Mobile Icon"
+          />
+        </motion.div>
+
+        {/* Mapflow1 GIF for both mobile and desktop */}
+        <motion.div
+          className="relative w-full"
           ref={imageRef}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
@@ -83,29 +101,17 @@ function Invest() {
           />
         </motion.div>
 
+        {/* Desktop Right Image */}
         <motion.div
-          className="flex-shrink-0"
+          className="hidden xl:block lg:block flex-shrink-0 "
           initial={{ opacity: 0, scale: 0.8 }}
           animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
           transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.6 }}
         >
           <img
-            className="w-full max-w-[350px] h-[300px] hidden xl:block lg:block md:hidden"
+            className="w-full max-w-[350px] h-[300px] "
             src={investRight}
             alt="Invest Right"
-          />
-        </motion.div>
-
-        <motion.div
-          className="flex-shrink-0"
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.8 }}
-        >
-          <img
-            className="w-full max-w-[400px] block xl:hidden lg:hidden md:block mx-auto"
-            src={invetMobileIcon}
-            alt="Invest Mobile Icon"
           />
         </motion.div>
       </div>
@@ -135,6 +141,7 @@ function Invest() {
         })}
       </div>
     </div>
+    
   );
 }
 

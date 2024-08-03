@@ -10,7 +10,12 @@
 html,
 body {
     font-family: 'AirbnbCereal_W_Md';
+    overflow-x: hidden;
 }
+
+*, *::before, *::after {
+    box-sizing: border-box;
+  }
 
 .owl-dots {
     margin: 0 !important;
@@ -21,13 +26,23 @@ body {
 }
 
 .rounded-corners-gradient-borders {
-    /* width: 300px;
-    height: 80px; */
-    border: double 3px transparent;
-    border-radius: 80px;
-    background-image: linear-gradient(white, white), radial-gradient(circle at top left, #FF385C, transparent);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+    background: white;
+  position: relative;
+  /* width: 200px;
+  height: 150px; */
+  margin: 10px 0px;
+}
+
+.rounded-corners-gradient-borders::before{
+    content: '';
+  position: absolute;
+  left: -5px;
+  top: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  background: linear-gradient(100deg, #FF385C 0%, #FF385C 42%, rgba(255, 255, 255, 1) 80%, #fff 100%);
+  z-index: -1;
+  border-radius: 56px;
 }
 
 .roadmap-rounded-border {
