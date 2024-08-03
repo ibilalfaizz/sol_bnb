@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import image1 from "../../assets/images/image1.svg";
 
+import image1 from "../../assets/images/image1.svg";
 import image2 from "../../assets/images/image2.svg";
 import image3 from "../../assets/images/image3.svg";
 import logo1 from "../../assets/images/logo1.svg";
@@ -79,7 +79,9 @@ const Hero = () => {
   }
 
   return (
-    <motion.div className="w-[90%] h-[65%] flex items-center mx-auto rounded-2xl px-10 py-4 bg-gradient-to-r from-[#F9F9F9] to-white border-[4px] border-[#F9F9F9] relative">
+    <motion.div
+      className="w-[90%] h-[65%] flex items-center mx-auto rounded-2xl px-10 py-4 bg-gradient-to-r from-[#F9F9F9] to-white border-[4px] border-[#F9F9F9] relative"
+    >
       {/* Left Section */}
       <div className="w-1/3 h-full pt-5 relative">
         <div className="w-full overflow-hidden">
@@ -302,7 +304,7 @@ const Hero = () => {
               }}
             >
               <img src={bsc} width={25} />
-              <span>BSC</span>
+              <span>USDT</span>
             </div>
 
             <div
@@ -316,7 +318,7 @@ const Hero = () => {
               }}
             >
               <img src={sol} width={25} />
-              <span>SOL</span>
+              <span>USDC</span>
             </div>
           </div>
 

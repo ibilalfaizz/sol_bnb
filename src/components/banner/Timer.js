@@ -9,7 +9,7 @@ function MyTimer({ expiryTimestamp }) {
 
   return (
     <div className="w-full">
-      <div className="w-[90%] mx-auto flex justify-center gap-2 border-[2px] border-[#FD395C] border-dashed rounded-full text-sm py-1 px-2 font-extrabold text-[#FD395C]">
+      <div className="w-[90%] mx-auto flex justify-center gap-2 border-[2px] border-[#FD395C] border-dotted rounded-full text-sm py-1 px-2 font-extrabold text-[#FD395C]">
         {/* Days */}
         <div className="flex flex-col items-center">
           <div>Days</div>
