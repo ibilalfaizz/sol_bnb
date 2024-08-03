@@ -51,26 +51,27 @@ function Invest() {
       </motion.h3>
 
       <div className="block w-full lg:flex justify-center items-center lg:px-[5rem] lg:mt-[4rem]">
-        <div className="flex-shrink-0">
-          <motion.img
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.2 }}
+        >
+          <img
             className="w-full max-w-[350px] h-[300px] hidden xl:block lg:block md:hidden"
             src={investLeft}
             alt="Invest Left"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }}
           />
-          <motion.img
-            className="w-full max-w-[400px] block xl:hidden lg:hidden md:block mx-auto"
-            src={invetMobileIcon}
-            alt="Invest Mobile Icon"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }}
-          />
-        </div>
-        <div className="relative" ref={imageRef}>
-          <motion.img
+        </motion.div>
+
+        <motion.div
+          className="relative"
+          ref={imageRef}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.4 }}
+        >
+          <img
             className="w-[500px] mx-auto"
             src={Mapflow1}
             alt="Map"
@@ -80,17 +81,33 @@ function Invest() {
             exit="exit"
             transition={{ duration: 1.5, ease: 'easeInOut' }}
           />
-        </div>
-        <div className="flex-shrink-0">
-          <motion.img
+        </motion.div>
+
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.6 }}
+        >
+          <img
             className="w-full max-w-[350px] h-[300px] hidden xl:block lg:block md:hidden"
             src={investRight}
             alt="Invest Right"
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
-            transition={{ duration: 0.8, ease: 'easeInOut' }}
           />
-        </div>
+        </motion.div>
+
+        <motion.div
+          className="flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={imageInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.8 }}
+          transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.8 }}
+        >
+          <img
+            className="w-full max-w-[400px] block xl:hidden lg:hidden md:block mx-auto"
+            src={invetMobileIcon}
+            alt="Invest Mobile Icon"
+          />
+        </motion.div>
       </div>
 
       <div className="xl:flex lg:flex md:flex justify-between mx-[1rem] lg:mx-[8rem] mt-[2rem] lg:mt-[3rem]">

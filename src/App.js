@@ -51,7 +51,7 @@ function App() {
       </div>
       <div className="xl:mx-[0] mt-[3rem] xl:mt-[4rem]">
         {!mobile ? (
-          <div className="w-[100vw] h-[100vh] flex flex-col justify-center">
+          <div className="w-[100vw] h-[100vh] -mt-28 flex flex-col justify-center">
             <Hero />
           </div>
         ) : (
