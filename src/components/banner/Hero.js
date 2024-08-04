@@ -11,6 +11,8 @@ import Timer from "./Timer";
 import Slider from "./Slider";
 import { BsExclamation } from "react-icons/bs";
 import { motion } from "framer-motion";
+import usdc from "../../assets/icons/usdc.svg"
+import usdt from "../../assets/icons/usdt.svg"
 
 const solbnb = {
   visible: { opacity: 1, x: 0 },
@@ -311,27 +313,27 @@ const Hero = () => {
                 className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
                 onClick={() => {
                   setRecieve("ETH");
-                  setRecieveIcon(eth);
+                  setRecieveIcon(payIcon);
                 }}
                 style={{
                   backgroundColor: `${recieve}` === "ETH" ? "#FD395C" : "",
                 }}
               >
-                <img src={eth} width={25} />
-                <span>ETH</span>
+                <img src={payIcon} width={25} />
+                <span>{pay}</span>
               </div>
 
               <div
                 className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
                 onClick={() => {
                   setRecieve("USDT");
-                  setRecieveIcon(bsc);
+                  setRecieveIcon(usdt)
                 }}
                 style={{
                   backgroundColor: `${recieve}` === "USDT" ? "#FD395C" : "",
                 }}
               >
-                <img src={bsc} width={25} />
+                <img src={usdt} width={25} />
                 <span>USDT</span>
               </div>
 
@@ -339,13 +341,13 @@ const Hero = () => {
                 className="flex gap-2 items-center cursor-pointer px-2 py-1 rounded-2xl"
                 onClick={() => {
                   setRecieve("USDC");
-                  setRecieveIcon(sol);
+                  setRecieveIcon(usdc)
                 }}
                 style={{
                   backgroundColor: `${recieve}` === "USDC" ? "#FD395C" : "",
                 }}
               >
-                <img src={sol} width={25} />
+                <img src={usdc} width={25} />
                 <span>USDC</span>
               </div>
             </div>
@@ -366,7 +368,7 @@ const Hero = () => {
                   className="w-[80%] bg-transparent pl-3 text-[#6A6A6A] outline-none"
                   onChange={payHandler}
                 />
-                <img src={payIcon} width={25} />
+                <img src={recieveIcon} width={25} />
               </div>
             </div>
 
@@ -383,7 +385,7 @@ const Hero = () => {
                 >
                   {exchanged}
                 </div>
-                <img src={recieveIcon} width={25} />
+                <img src={logo1} width={20} />
               </div>
             </div>
           </div>

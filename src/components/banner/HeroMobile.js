@@ -11,6 +11,8 @@ import Timer from "./Timer";
 import Slider from "./Slider";
 import { BsExclamation } from "react-icons/bs";
 import { motion } from "framer-motion";
+import usdc from "../../assets/icons/usdc.svg"
+import usdt from "../../assets/icons/usdt.svg"
 
 const solbnb = {
     visible: { opacity: 1, x: 0, z: 0 },
@@ -286,18 +288,18 @@ const HeroMobile = () => {
 
 
                     <div className='w-full flex justify-between border-[1.5px] border-black py-2 px-4 rounded-3xl' style={{borderTopLeftRadius : pay === ("ETH") ? ('0px') : (''), borderTopRightRadius : pay === "SOL" ? ('0px') : (''), }}>
-                        <div className='flex gap-2 items-center px-2 py-1 rounded-full cursor-pointer' onClick={()=>{setRecieve("ETH"); setRecieveIcon(eth)}} style={{backgroundColor : `${recieve}` === "ETH" ? ("#FD395C") : ("")}}>
-                            <img src={eth} width={25}/>
-                            <span>ETH</span>
+                        <div className='flex gap-2 items-center px-2 py-1 rounded-full cursor-pointer' onClick={()=>{setRecieve(pay); setRecieveIcon(payIcon)}} style={{backgroundColor : `${recieve}` === pay ? ("#FD395C") : ("")}}>
+                            <img src={payIcon} width={25}/>
+                            <span>{pay}</span>
                         </div>
 
-                        <div className='flex gap-2 items-center px-2 py-1 rounded-full cursor-pointer' onClick={()=>{setRecieve("USDT"); setRecieveIcon(bsc)}} style={{backgroundColor : `${recieve}` === "USDT" ? ("#FD395C") : ('')}}>
-                            <img src={bsc} width={25} />
+                        <div className='flex gap-2 items-center px-2 py-1 rounded-full cursor-pointer' onClick={()=>{setRecieve("USDT"); setRecieveIcon(usdt)}} style={{backgroundColor : `${recieve}` === "USDT" ? ("#FD395C") : ('')}}>
+                            <img src={usdt} width={25} />
                             <span>USDT</span>
                         </div>
 
-                        <div className='flex gap-2 items-center px-2 py-1 rounded-full cursor-pointer' onClick={()=>{setRecieve("USDC"); setRecieveIcon(sol)}} style={{backgroundColor : `${recieve}` === "USDC" ? ("#FD395C") : ("")}}>
-                            <img src={sol} width={25}/>
+                        <div className='flex gap-2 items-center px-2 py-1 rounded-full cursor-pointer' onClick={()=>{setRecieve("USDC"); setRecieveIcon(usdc)}} style={{backgroundColor : `${recieve}` === "USDC" ? ("#FD395C") : ("")}}>
+                            <img src={usdc} width={25}/>
                             <span>USDC</span>
                         </div>
                     </div>
@@ -313,7 +315,7 @@ const HeroMobile = () => {
                         </div>
                         <div className='flex border-[1.5px] border-black rounded-full'>
                             <input type='number' placeholder='0' className='w-[80%] bg-transparent pl-3 text-[#6A6A6A] outline-none' onChange={payHandler}/>
-                            <img src={eth} width={25}/>
+                            <img src={recieveIcon} width={25}/>
                         </div>
                     </div>
 
@@ -324,7 +326,7 @@ const HeroMobile = () => {
                         </div>
                         <div className='flex border-[1.5px] border-black rounded-full'>
                             <div type='number' placeholder='0' className='w-[80%] bg-transparent pl-3 text-[#6A6A6A] outline-none overflow-hidden'>{exchanged}</div>
-                            <img src={recieveIcon} width={25}/>
+                            <img src={logo1} width={20}/>
                         </div>
                     </div>
                 </div>
