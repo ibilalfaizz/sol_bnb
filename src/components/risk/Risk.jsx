@@ -39,7 +39,7 @@ function Risk() {
           transition={{ delay: 0.1 }} // Delay for first image
           className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <img src={risk1} alt='Risk 1' className='w-full h-auto'/>
+          <img src={risk1} alt='Risk 1' />
         </motion.div>
 
         <motion.div
@@ -50,7 +50,7 @@ function Risk() {
           transition={{ delay: 0.3 }} // Delay for second image
           className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <img src={risk2} alt='Risk 2' className='w-full h-auto'/>
+          <img src={risk2} alt='Risk 2' />
         </motion.div>
       </div>
 
@@ -64,7 +64,7 @@ function Risk() {
           transition={{ delay: 0.5 }} // Delay for third image
           className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <img src={risk3} alt='Risk 3' className='w-full h-auto'/>
+          <img src={risk3} alt='Risk 3' />
         </motion.div>
 
         <motion.div
@@ -75,11 +75,11 @@ function Risk() {
           transition={{ delay: 0.7 }} // Delay for fourth image
           className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <img src={risk4} alt='Risk 4' className='w-full h-auto'/>
+          <img src={risk4} alt='Risk 4' />
         </motion.div>
       </div>
 
-      <div className='mx-4 lg:mx-0 mt-4'>
+      <div className='grid gap-4 mx-4 lg:mx-0 mt-4 lg:flex'>
         {/* Last card with right-to-left animation sequentially */}
         <motion.div
           initial="hidden"
@@ -89,7 +89,7 @@ function Risk() {
           transition={{ delay: 0.9 }} // Delay for fifth image
           className='w-full max-w-[1000px]' // Adjust size as needed
         >
-          <img src={risk5} alt='Risk 5' className='w-full h-auto'/>
+          <img src={risk5} alt='Risk 5'/>
         </motion.div>
       </div>
     </Container>

@@ -21,7 +21,7 @@ const cardVariants = {
 function Legal() {
     return (
      
-        <Container className="mx-4 lg:mx-[8rem] mt-[2rem] lg:mt-[5rem]">
+        <div className="mx-4 lg:mx-[8rem] mt-[2rem] lg:mt-[5rem]">
             <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0">
                 Legal Considerations.
             </h3>
@@ -116,7 +116,7 @@ function Legal() {
                 </motion.div>
 
             </div>
-        </Container>
+        </div>
        
     );
 }
