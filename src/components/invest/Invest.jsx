@@ -39,8 +39,8 @@ function Invest() {
   ];
 
   return (
-  
-    <div className="mt-[4rem] ">
+    <div className="d-flex justify-content-center align-items-center m" >
+    <Container className=" mx-auto px-4">
       <motion.h3
         className="text-[1.875rem] font-bold text-center"
         ref={titleRef}
@@ -109,7 +109,7 @@ function Invest() {
           transition={{ duration: 0.8, ease: 'easeInOut', delay: 0.6 }}
         >
           <img
-            className="w-full max-w-[350px] h-[300px] "
+            className="w-full max-w-[300px] h-[250px] "
             src={investRight}
             alt="Invest Right"
           />
@@ -131,7 +131,7 @@ function Invest() {
               transition={{ duration: 0.8, ease: 'easeInOut', delay: index * 0.2 }}
             >
               <h3 className="text-[1rem] font-bold">{title}</h3>
-              <p className="w-full lg:max-w-[260px] text-[#6a6a6a] text-[0.9rem] mt-1 lg:mt-2">
+              <p className="w-full lg:max-w-[260px] text-[#7777] text-[0.9rem] mt-1 lg:mt-2">
                 {index === 0 && "Earn from bookings made through partner agencies."}
                 {index === 1 && "Low-cost transaction fees on the SolBnB platform."}
                 {index === 2 && "Additional services and features for higher-tier token holders."}
@@ -140,6 +140,7 @@ function Invest() {
           );
         })}
       </div>
+      </Container>
     </div>
     
   );

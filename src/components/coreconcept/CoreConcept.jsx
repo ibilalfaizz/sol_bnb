@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import icon from "../../assets/icons/conceptIcon.png";
 import Slider from "../../components/coreconcept/Slider";
+import {Container} from "react-bootstrap"
 import "./CoreConcept.css"; // Import your CSS file
 
 // Define animation variants for desktop and mobile
@@ -52,6 +53,8 @@ function CoreConcept() {
   const isMobile = window.innerWidth < 1024;
 
   return (
+    <div className="d-flex justify-content-center align-items-center m" >
+    <Container className=" mx-auto">
     <div className={`core-concept-container ${isMobile ? 'mobile' : 'desktop'} lg:mx-[8rem] mt-[2rem] lg:mt-[5rem] pb-[4rem]`}>
       <div className={`core-concept-content ${isMobile ? 'mobile' : 'desktop'}`}>
         <motion.div
@@ -101,6 +104,8 @@ function CoreConcept() {
         </motion.h3>
       </div>
       <Slider />
+    </div>
+    </Container>
     </div>
   );
 }

@@ -43,6 +43,7 @@ body {
   background: linear-gradient(100deg, #FF385C 0%, #FF385C 42%, rgba(255, 255, 255, 1) 80%, #fff 100%);
   z-index: -1;
   border-radius: 56px;
+  border-width: solid 10px red 0px white;
 }
 
 .roadmap-rounded-border {

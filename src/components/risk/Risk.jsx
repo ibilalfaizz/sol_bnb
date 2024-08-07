@@ -1,11 +1,10 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import icon1 from "../../assets/icons/risk1.png";
-import icon2 from "../../assets/icons/risk2.png";
-import icon3 from "../../assets/icons/risk3.png";
-import icon4 from "../../assets/icons/risk4.png";
-import icon5 from "../../assets/icons/risk5.png";
-
+import risk1 from "../../assets/images/risk1.png";
+import risk2 from "../../assets/images/risk2.png";
+import risk3 from "../../assets/images/risk3.png";
+import risk4 from "../../assets/images/risk4.png";
+import risk5 from "../../assets/images/risk5.png";
 
 const cardVariants = {
   hidden: {
@@ -36,18 +35,10 @@ function Risk() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
-          transition={{ delay: 0.1 }}
-          className='bg-white rounded-corners-gradient-borders w-full rounded-[50px] flex gap-5 items-center py-[0.75rem] lg:py-[1.4rem] px-[0.5rem] lg:px-[1.2rem]'
+          transition={{ delay: 0.1 }} // Delay for first image
+          className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <div>
-            <img className='w-[30px] lg:h-[50px]' src={icon1} alt='' />
-          </div>
-          <div>
-            <h3 className='text-[1rem] font-bold'>Regulatory Uncertainty</h3>
-            <p className='text-[0.7rem] text-[#6a6a6a] mt-2 w-full max-w-[250px] lg:w-[300px]'>
-              Navigate the evolving regulatory landscape in the crypto space.
-            </p>
-          </div>
+          <img src={risk1} alt='Risk 1' className='w-full h-auto'/>
         </motion.div>
 
         <motion.div
@@ -55,18 +46,10 @@ function Risk() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
-          transition={{ delay: 0.3 }}
-          className='bg-white rounded-corners-gradient-borders w-full rounded-[50px] flex gap-5 items-center py-[0.75rem] lg:py-[1.4rem] px-[0.5rem] lg:px-[1.2rem]'
+          transition={{ delay: 0.3 }} // Delay for second image
+          className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <div>
-            <img className='w-[30px] lg:h-[50px]' src={icon2} alt='' />
-          </div>
-          <div>
-            <h3 className='text-[1rem] font-bold'>Partner Dependence</h3>
-            <p className='text-[0.7rem] text-[#6a6a6a] mt-2 w-[200px]'>
-              Performance reliant on partner agencies.
-            </p>
-          </div>
+          <img src={risk2} alt='Risk 2' className='w-full h-auto'/>
         </motion.div>
       </div>
 
@@ -77,18 +60,10 @@ function Risk() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
-          transition={{ delay: 0.5 }}
-          className='bg-white rounded-corners-gradient-borders w-full rounded-[50px] flex gap-5 items-center py-[0.75rem] lg:py-[1.4rem] px-[0.5rem] lg:px-[1.2rem]'
+          transition={{ delay: 0.5 }} // Delay for third image
+          className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <div>
-            <img className='w-[30px] lg:h-[50px]' src={icon3} alt='' />
-          </div>
-          <div>
-            <h3 className='text-[1rem] font-bold'>Market Volatility</h3>
-            <p className='text-[0.7rem] text-[#6a6a6a] mt-2 lg:w-[300px]'>
-              Mitigate the effects of market fluctuations in both crypto and travel industries.
-            </p>
-          </div>
+          <img src={risk3} alt='Risk 3' className='w-full h-auto'/>
         </motion.div>
 
         <motion.div
@@ -96,18 +71,10 @@ function Risk() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
-          transition={{ delay: 0.7 }}
-          className='bg-white rounded-corners-gradient-borders w-full rounded-[50px] flex gap-5 items-center py-[0.75rem] lg:py-[1.4rem] px-[0.5rem] lg:px-[1.2rem]'
+          transition={{ delay: 0.7 }} // Delay for fourth image
+          className='w-full max-w-[500px]' // Adjust size as needed
         >
-          <div>
-            <img className='w-[30px] lg:h-[50px]' src={icon4} alt='' />
-          </div>
-          <div>
-            <h3 className='text-[1rem] font-bold'>Smart Contract Vulnerabilities</h3>
-            <p className='text-[0.7rem] text-[#6a6a6a] mt-2 w-[200px] lg:w-[200px]'>
-              Ensure security against potential vulnerabilities.
-            </p>
-          </div>
+          <img src={risk4} alt='Risk 4' className='w-full h-auto'/>
         </motion.div>
       </div>
 
@@ -118,18 +85,10 @@ function Risk() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
           variants={cardVariants}
-          transition={{ delay: 0.9 }}
-          className='bg-white rounded-corners-gradient-borders w-full rounded-[50px] flex gap-5 items-center py-[0.75rem] lg:py-[1.4rem] px-[0.5rem] lg:px-[1.2rem]'
+          transition={{ delay: 0.9 }} // Delay for fifth image
+          className='w-full max-w-[1000px]' // Adjust size as needed
         >
-          <div>
-            <img className='w-[30px] lg:h-[50px]' src={icon5} alt='' />
-          </div>
-          <div>
-            <h3 className='text-[1rem] font-bold'>Quality Control</h3>
-            <p className='text-[0.7rem] text-[#6a6a6a] mt-2 w-[220px] lg:max-w-[200px] lg:w-[300px]'>
-              Maintain high-quality standards across partnerships.
-            </p>
-          </div>
+          <img src={risk5} alt='Risk 5' className='w-full h-auto'/>
         </motion.div>
       </div>
     </div>
