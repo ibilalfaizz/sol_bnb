@@ -1,6 +1,8 @@
 import React from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import {Container} from "react-bootstrap"
+
 
 function Strategy() {
   // Animation variants for the cards
@@ -33,6 +35,8 @@ function Strategy() {
   const [card4Ref, card4Controls] = useScrollAnimation();
 
   return (
+    <div className="d-flex justify-content-center align-items-center m" >
+    <Container className=" mx-auto">
     <div className="lg:mx-[8rem] mt-[2rem] lg:mt-[5rem] mb-[5rem]">
       <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0">
         Partnership Strategy
@@ -87,6 +91,8 @@ function Strategy() {
           <p className='text-[0.8rem] text-[#6a6a6a] lg:w-[190px] leading-4 mt-2'>Continuously review and improve partnership strategies.</p>
         </motion.div>
       </div>
+    </div>
+    </Container>
     </div>
   );
 }

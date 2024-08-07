@@ -1,10 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import risk1 from "../../assets/images/risk1.png";
-import risk2 from "../../assets/images/risk2.png";
-import risk3 from "../../assets/images/risk3.png";
-import risk4 from "../../assets/images/risk4.png";
-import risk5 from "../../assets/images/risk5.png";
+import risk1 from "../../assets/images/risk1.svg";
+import risk2 from "../../assets/images/risk2.svg";
+import risk3 from "../../assets/images/risk3.svg";
+import risk4 from "../../assets/images/risk4.svg";
+import risk5 from "../../assets/images/risk5.svg";
+import { Container } from 'react-bootstrap';
 
 const cardVariants = {
   hidden: {
@@ -23,7 +24,7 @@ const cardVariants = {
 
 function Risk() {
   return (
-    <div className="lg:mx-[8rem] mt-[2rem] lg:mt-[4rem]">
+    <Container className="lg:mx-[8rem] mt-[2rem] lg:mt-[4rem]">
       <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0">
         Risks and Challenges.
       </h3>
@@ -91,7 +92,7 @@ function Risk() {
           <img src={risk5} alt='Risk 5' className='w-full h-auto'/>
         </motion.div>
       </div>
-    </div>
+    </Container>
   );
 }
 

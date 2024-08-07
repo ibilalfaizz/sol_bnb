@@ -116,30 +116,31 @@ function Invest() {
         </motion.div>
       </div>
 
-      <div className="xl:flex lg:flex md:flex justify-between mx-[1rem] lg:mx-[8rem] mt-[2rem] lg:mt-[3rem]">
-        {["Partner Commissions", "Partner Commissions", "Partner Commissions"].map((title, index) => {
-          const { ref, inView } = sectionRefs[index];
+      <div className="xl:flex lg:flex md:flex justify-between mx-[1rem] inverth lg:mx-[8rem] mt-[2rem] lg:mt-[3rem] text-\[1.4rem\]">
+  {["Partner Commissions", "Partner Commissions", "Partner Commissions"].map((title, index) => {
+    const { ref, inView } = sectionRefs[index];
 
-          return (
-            <motion.div
-              className="text-center lg:text-left p-4"
-              key={index}
-              ref={ref}
-              variants={sectionVariants}
-              initial="hidden"
-              animate={inView ? "visible" : "hidden"}
-              transition={{ duration: 0.8, ease: 'easeInOut', delay: index * 0.2 }}
-            >
-              <h3 className="text-[1rem] font-bold">{title}</h3>
-              <p className="w-full lg:max-w-[260px] text-[#7777] text-[0.9rem] mt-1 lg:mt-2">
-                {index === 0 && "Earn from bookings made through partner agencies."}
-                {index === 1 && "Low-cost transaction fees on the SolBnB platform."}
-                {index === 2 && "Additional services and features for higher-tier token holders."}
-              </p>
-            </motion.div>
-          );
-        })}
-      </div>
+    return (
+      <motion.div
+        className="text-center lg:text-left p-4"
+        key={index}
+        ref={ref}
+        variants={sectionVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        transition={{ duration: 0.8, ease: 'easeInOut', delay: index * 0.2 }}
+      >
+        <h3 className="text-[1.4rem] font-bold">{title}</h3>
+        <p className="w-full lg:max-w-[260px] text-[#696868] text-[0.9rem] mt-1 lg:mt-2">
+          {index === 0 && "Earn from bookings made through partner agencies."}
+          {index === 1 && "Low-cost transaction fees on the SolBnB platform."}
+          {index === 2 && "Additional services and features for higher-tier token holders."}
+        </p>
+      </motion.div>
+    );
+  })}
+</div>
+
       </Container>
     </div>
     

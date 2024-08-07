@@ -1,6 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import cardicon from '../../assets/icons/legalcardicon.png';
+import { Container } from 'react-bootstrap';
+
+
 
 // Define animation variants for different directions
 const cardVariants = {
@@ -17,7 +20,8 @@ const cardVariants = {
 
 function Legal() {
     return (
-        <div className="mx-4 lg:mx-[8rem] mt-[2rem] lg:mt-[5rem]">
+     
+        <Container className="mx-4 lg:mx-[8rem] mt-[2rem] lg:mt-[5rem]">
             <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0">
                 Legal Considerations.
             </h3>
@@ -112,7 +116,8 @@ function Legal() {
                 </motion.div>
 
             </div>
-        </div>
+        </Container>
+       
     );
 }
 

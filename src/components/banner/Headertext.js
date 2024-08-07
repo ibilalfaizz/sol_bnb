@@ -15,7 +15,7 @@ const Headertext = () => {
       className="flex justify-center items-center mt-10 md:mt-0 mb-20 text-[#00000]"
     >
       <Container className="mx-auto px-4 md:px-20 lg:px-28 text-center">
-        <p className="text-sm md:text-base lg:text-lg">
+        <p className="text-sm md:text-base lg:text-lg font-medium">
           Welcome to SolBnB, where the worlds of blockchain and vacation rentals intersect. SolBnB leverages the power of Solana to provide you with a unique opportunity to invest in a network of vacation rentals without the hassle of direct property ownership. Earn passive income, enjoy exclusive travel perks, and be part of a revolutionary travel experience.
         </p>
       </Container>

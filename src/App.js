@@ -19,6 +19,7 @@ import HeroMobile from "./components/banner/HeroMobile";
 import { useEffect, useState } from "react";
 import RoadmapMobile from "./components/roadmap/RoadmapMobile";
 import Roadmap from "./components/roadmap/RoadMap";
+import Headertext from "./components/banner/Headertext"
 
 function App() {
   const [mobile, setMobile] = useState(false);
@@ -59,6 +60,7 @@ function App() {
             <HeroMobile />
           </div>
         )}
+        <Headertext/>
         <Invest />
         <CoreConcept />
         <InvestAnimation />

@@ -25,6 +25,7 @@ body {
     background-color: #FF385C !important;
 }
 
+
 .rounded-corners-gradient-borders {
     background: white;
   position: relative;
@@ -44,6 +45,10 @@ body {
   z-index: -1;
   border-radius: 56px;
   border-width: solid 10px red 0px white;
+}
+.inverth
+{
+    font-size: 1.3rem;
 }
 
 .roadmap-rounded-border {

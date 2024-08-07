@@ -74,11 +74,11 @@ function CoreConcept() {
           animate={textInView ? "visible" : "hidden"}
           variants={isMobile ? textVariantsMobile : textVariantsDesktop}
         >
-          <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0">
+          <h3 className="text-[#FF385C] text-[1.75rem] font-medium text-center lg:text-left mt-[1.8rem] lg:mt-0">
             Core concept
           </h3>
           <motion.p
-            className={`text-[0.875rem] w-full lg:max-w-[440px] mt-4 text-center lg:text-left ${isMobile ? 'animate' : ''}`}
+            className={`text-[0.875rem] w-full lg:max-w-[440px] font-medium mt-4 text-center lg:text-left ${isMobile ? 'animate' : ''}`}
             ref={paragraphRef}
             initial="hidden"
             animate={paragraphInView ? "visible" : "hidden"}

@@ -5,7 +5,7 @@ import OwlCarousel from "react-owl-carousel";
 import "owl.carousel/dist/assets/owl.carousel.css";
 import "owl.carousel/dist/assets/owl.theme.default.css";
 import card1 from "../../assets/icons/utitlity-1.png";
-import card2 from "../../assets/icons/utility-2.png";
+import card2 from "../../assets/icons/utility-2.svg";
 import card3 from "../../assets/icons/utility-3.png";
 import card4 from "../../assets/icons/utility-4.png";
 
@@ -80,9 +80,9 @@ function Slider() {
                         className="item w-[100%]"
                         variants={cardVariants}
                     >
-                        <div className="border lg:border rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto pt-10 pb-8">
+                        <div className="border lg:border-t-0 rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto pt-10 pb-8">
                             <div className='mb-6'>
-                                <img className='h-[110px] w-full max-w-[140px] mx-auto' src={card1} alt='' />
+                                <img className='h-[160px] w-full max-w-[190px] mx-auto' src={card1} alt='' />
                             </div>
                             <h3 className="text-[1rem] w-[10px] leading-[1.2rem]">
                                 Passive Income
@@ -97,9 +97,9 @@ function Slider() {
                         className="item w-[100%]"
                         variants={cardVariants}
                     >
-                        <div className="border lg:border rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto min-h-[100%] h-[323px] pt-10 pb-8">
+                        <div className="border lg:border-t-0 rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto min-h-[100%] h-[370px] pt-10 pb-8">
                             <div className='mb-6'>
-                                <img className='h-[110px] w-full max-w-[140px] mx-auto' src={card2} alt='' />
+                                <img className='h-[160px] w-full max-w-[190px] mx-auto' src={card2} alt='' />
                             </div>
                             <h3 className="text-[1rem] w-[10px] leading-[1.2rem]">
                                 Booking Discounts
@@ -114,9 +114,9 @@ function Slider() {
                         className="item w-[100%]"
                         variants={cardVariants}
                     >
-                        <div className="border lg:border rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto min-h-[100%] h-[323px] pt-10 pb-8">
+                        <div className="border lg:border-t-0 rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto min-h-[100%] h-[370px] pt-10 pb-8">
                             <div className='mb-6'>
-                                <img className='h-[110px] w-full max-w-[140px] mx-auto' src={card3} alt='' />
+                                <img className='h-[160px] w-full max-w-[190px] mx-auto' src={card3} alt='' />
                             </div>
                             <h3 className="text-[1rem] w-[100px] leading-[1.2rem]">
                                 Exclusive Travel Perks
@@ -131,9 +131,9 @@ function Slider() {
                         className="item w-[100%]"
                         variants={cardVariants}
                     >
-                        <div className="border lg:border rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto min-h-[100%] h-[323px] pt-10 pb-8">
+                        <div className="border lg:border-t-0 rounded-[18px] lg:rounded-[20px] px-4 w-[250px] mx-auto min-h-[100%] h-[370px] pt-10 pb-8">
                             <div className='mb-6'>
-                                <img className='h-[110px] w-full max-w-[140px] mx-auto' src={card4} alt='' />
+                                <img className='h-[160px] w-full max-w-[190px] mx-auto' src={card4} alt='' />
                             </div>
                             <h3 className="text-[1rem] w-[10px] leading-[1.2rem]">
                                 Staking Rewards

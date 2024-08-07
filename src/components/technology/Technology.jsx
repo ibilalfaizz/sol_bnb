@@ -5,6 +5,8 @@ import card1 from "../../assets/icons/techicon-1.png";
 import card2 from "../../assets/icons/techicon-2.png";
 import card3 from "../../assets/icons/Nft.png";
 import bigmobile from "../../assets/icons/bigmobile.png";
+import {Container} from "react-bootstrap"
+
 
 function Technology() {
   // Animation variants for each card
@@ -56,6 +58,8 @@ function Technology() {
   };
 
   return (
+    <div className="d-flex justify-content-center align-items-center m" >
+    <Container className=" mx-auto">
     <div className="mx-4 lg:mx-[8rem] mt-[2rem] lg:mt-[5rem]">
       <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-center lg:text-left mt-[1.8rem] lg:mt-0">
         Technology
@@ -73,7 +77,7 @@ function Technology() {
           className='bg-gradient-to-t from-[#f7f7f7] to-[transparent] rounded-[16px] px-8 py-10'
           variants={cardVariants}
         >
-          <img className='h-[180px] mx-auto' src={card1} alt='' />
+          <img className='h-[220px] mx-auto' src={card1} alt='' />
           <h3 className='text-[#FF385C] font-bold mt-4'>Blockchain</h3>
           <p className='text-[0.875rem] text-[#6a6a6a] lg:w-[180px] text-left mt-2'>
             Solana for fast and secure transactions.
@@ -85,7 +89,7 @@ function Technology() {
           className='bg-gradient-to-t from-[#f7f7f7] to-[transparent] rounded-[16px] px-8 py-10'
           variants={cardVariants}
         >
-          <img className='h-[180px] mx-auto' src={card2} alt='' />
+          <img className='h-[220px] mx-auto' src={card2} alt='' />
           <h3 className='text-[#FF385C] font-bold mt-4'>Smart Contracts</h3>
           <p className='text-[0.875rem] text-[#6a6a6a] lg:w-[180px] text-left mt-2'>
             Ensure transparent and automatic revenue sharing.
@@ -97,7 +101,7 @@ function Technology() {
           className='bg-gradient-to-t from-[#f7f7f7] to-[transparent] rounded-[16px] px-8 py-10'
           variants={cardVariants}
         >
-          <img className='h-[200px] mx-auto' src={card3} alt='' />
+          <img className='h-[220px] mx-auto' src={card3} alt='' />
           <h3 className='text-[#FF385C] font-bold mt-4'>NFT Integration</h3>
           <p className='text-[0.875rem] text-[#6a6a6a] lg:w-[180px] text-left mt-2'>
             Represent partnership tiers and premium access.
@@ -118,7 +122,7 @@ function Technology() {
           <h3 className="text-[#FF385C] text-[1.75rem] font-bold text-left mt-[1.8rem] lg:mt-0">
             Key Difference
           </h3>
-          <ul>
+          <ul className='list-disc pl-5 mt-4 '>
             <li className='text-[1rem] leading-[2rem]'>No direct property ownership or management.</li>
             <li className='text-[1rem] leading-[2rem]'>Focus on building and maintaining agency partnerships.</li>
             <li className='text-[1rem] leading-[2rem] lg:w-[380px]'>Revenue tied to partner performance rather than specific properties.</li>
@@ -136,6 +140,8 @@ function Technology() {
           <img className='w-full max-w-[350px] mx-auto lg:max-w-[600px] lg:h-auto' src={bigmobile} alt='' />
         </motion.div>
       </motion.div>
+    </div>
+    </Container>
     </div>
   );
 }
